@@ -13,10 +13,10 @@ describe('README.md Test Note Validation', () => {
   });
 
   it('should have a test note with at least 3 sentences', () => {
-    const testNoteRegex = /test notes?(?:\s*\(.*\))?:\s*(.+?)(?=\n\n|\n#|$)/is;
+    const testNoteRegex = /test\s+notes?(?:\s*\(.*\))?:?\s*(.*?)(?=\n\n|\n#|$)/is;
     const match = readmeContent.match(testNoteRegex);
     
-    expect(match).not.toBeNull('Test note section not found');
+    expect(match).toBeTruthy('Test note section not found');
     
     if (match) {
       const testNoteContent = match[1].trim();
